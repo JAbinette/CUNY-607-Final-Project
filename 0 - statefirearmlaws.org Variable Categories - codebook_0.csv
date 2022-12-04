@@ -1,0 +1,135 @@
+Category Code,Category,Sub-Category,Variable Name
+1,Dealer regulations,Licensing,dealer
+1,Dealer regulations,Licensing,dealerh
+1,Dealer regulations,Recordkeeping,recordsdealer
+1,Dealer regulations,Recordkeeping,recordsdealerh
+1,Dealer regulations,Recordkeeping,recordsall
+1,Dealer regulations,Recordkeeping,recordsallh
+1,Dealer regulations,Reporting,reportdealer
+1,Dealer regulations,Reporting,reportdealerh
+1,Dealer regulations,Reporting,reportall
+1,Dealer regulations,Reporting,reportallh
+1,Dealer regulations,Reporting,purge
+1,Dealer regulations,Location,residential
+1,Dealer regulations,Theft reporting,theft
+1,Dealer regulations,Security,security
+1,Dealer regulations,Inspections,inspection
+1,Dealer regulations,Liability,liability
+1,Dealer regulations,Junk guns,junkgun
+2,Buyer regulations,Waiting period,waiting
+2,Buyer regulations,Waiting period,waitingh
+2,Buyer regulations,Permitting,permit
+2,Buyer regulations,Permitting,permith
+2,Buyer regulations,Permitting,permitlaw
+2,Buyer regulations,Fingerprinting,fingerprint
+2,Buyer regulations,Safety training,training
+2,Buyer regulations,Registration,registration
+2,Buyer regulations,Registration,registrationh
+2,Buyer regulations,Registration,defactoreg
+2,Buyer regulations,Registration,defactoregh
+2,Buyer regulations,Age restrictions,age21handgunsale
+2,Buyer regulations,Age restrictions,age18longgunsale
+2,Buyer regulations,Age restrictions,age21longgunsaled
+2,Buyer regulations,Age restrictions,age21longgunsale
+2,Buyer regulations,Theft reporting,loststolen
+2,Buyer regulations,Bulk purchase limit,onepermonth
+3,Prohibitions for high-risk gun possession,Felony,felony
+3,Prohibitions for high-risk gun possession,Violent Misdemeanor,violent
+3,Prohibitions for high-risk gun possession,Violent Misdemeanor,violenth
+3,Prohibitions for high-risk gun possession,Violent Misdemeanor,violentpartial
+3,Prohibitions for high-risk gun possession,Mental Health,invcommitment
+3,Prohibitions for high-risk gun possession,Mental Health,invoutpatient
+3,Prohibitions for high-risk gun possession,Mental Health,danger
+3,Prohibitions for high-risk gun possession,Drugs,drugmisdemeanor
+3,Prohibitions for high-risk gun possession,Alcohol,alctreatment
+3,Prohibitions for high-risk gun possession,Alcohol,alcoholism
+3,Prohibitions for high-risk gun possession,Relinquishment of weapons,relinquishment
+4,Background checks,Universal background checks,universal
+4,Background checks,Universal background checks,universalh
+4,Background checks,Gun shows,gunshow
+4,Background checks,Gun shows,gunshowh
+4,Background checks,Background checks through permits,universalpermit
+4,Background checks,Background checks through permits,universalpermith
+4,Background checks,Background check records,backgroundpurge
+4,Background checks,Background checks time limit,threedaylimit
+4,Background checks,Background checks - mental health records,mentalhealth
+4,Background checks,Background checks - state records,statechecks
+4,Background checks,Background checks - state records,statechecksh
+5,Ammunition regulations,Licensing,ammlicense
+5,Ammunition regulations,Recordkeeping,ammrecords
+5,Ammunition regulations,Permitting,ammpermit
+5,Ammunition regulations,Prohibitors,ammrestrict
+5,Ammunition regulations,Age restrictions,amm18
+5,Ammunition regulations,Age restrictions,amm21h
+5,Ammunition regulations,Background checks,ammbackground
+6,Possession regulations,Age restrictions,age21handgunpossess
+6,Possession regulations,Age restrictions,age18longgunpossess
+6,Possession regulations,Age restrictions,age21longgunpossess
+6,Possession regulations,Gun violence restraining orders,gvro
+6,Possession regulations,Gun violence restraining orders,gvrolawenforcement
+6,Possession regulations,Campus carry,college
+6,Possession regulations,Campus carry,collegeconcealed
+6,Possession regulations,School zones,elementary
+6,Possession regulations,Open carry,opencarryh
+6,Possession regulations,Open carry,opencarryl
+6,Possession regulations,Open carry,opencarrypermith
+6,Possession regulations,Open carry,opencarrypermitl
+7,Concealed carry permitting,Permitting,permitconcealed
+7,Concealed carry permitting,Permitting,mayissue
+7,Concealed carry permitting,Permitting,showing
+7,Concealed carry permitting,Permitting,ccrevoke
+7,Concealed carry permitting,Background checks,ccbackground
+7,Concealed carry permitting,Background checks,ccbackgroundnics
+7,Concealed carry permitting,Background checks,ccrenewbackground
+8,Assault weapons and large-capacity magazines,Assault weapons ban,assault
+8,Assault weapons and large-capacity magazines,Assault weapons ban,onefeature
+8,Assault weapons and large-capacity magazines,Assault weapons ban,assaultlist
+8,Assault weapons and large-capacity magazines,Assault weapons ban,assaultregister
+8,Assault weapons and large-capacity magazines,Assault weapons ban,assaulttransfer
+8,Assault weapons and large-capacity magazines,Large capacity magazine ban,magazine
+8,Assault weapons and large-capacity magazines,Large capacity magazine ban,tenroundlimit
+8,Assault weapons and large-capacity magazines,Large capacity magazine ban,magazinepreowned
+9,Child access prevention,Safety locks,lockd
+9,Child access prevention,Safety locks,lockp
+9,Child access prevention,Safety locks,lockstandards
+9,Child access prevention,Storage,locked
+9,Child access prevention,Storage,capliability
+9,Child access prevention,Storage,capaccess
+9,Child access prevention,Storage,capuses
+9,Child access prevention,Storage,capunloaded
+9,Child access prevention,Storage,cap18
+9,Child access prevention,Storage,cap16
+9,Child access prevention,Storage,cap14
+10,Gun trafficking,Gun trafficking,traffickingbackground
+10,Gun trafficking,Gun trafficking,traffickingprohibited
+10,Gun trafficking,Gun trafficking,traffickingprohibitedh
+10,Gun trafficking,Straw purchase,strawpurchase
+10,Gun trafficking,Straw purchase,strawpurchaseh
+10,Gun trafficking,Crime gun identification,microstamp
+10,Gun trafficking,Personalized gun technology,personalized
+11,Stand your ground,Stand your ground,nosyg
+12,Preemption,Preemption,preemption
+12,Preemption,Preemption,preemptionnarrow
+12,Preemption,Preemption,preemptionbroad
+13,Immunity,Immunity,immunity
+14,Domestic violence,Misdemeanor crimes,mcdv
+14,Domestic violence,Misdemeanor crimes,mcdvdating
+14,Domestic violence,Misdemeanor crimes,mcdvsurrender
+14,Domestic violence,Misdemeanor crimes,mcdvsurrendernoconditions
+14,Domestic violence,Misdemeanor crimes,mcdvsurrenderdating
+14,Domestic violence,Misdemeanor crimes,mcdvremovalallowed
+14,Domestic violence,Misdemeanor crimes,mcdvremovalrequired
+14,Domestic violence,Firearm removal,incidentremoval
+14,Domestic violence,Firearm removal,incidentall
+14,Domestic violence,Restraining order,dvro
+14,Domestic violence,Restraining order,dvrodating
+14,Domestic violence,Restraining order,exparte
+14,Domestic violence,Restraining order,expartedating
+14,Domestic violence,Restraining order,dvrosurrender
+14,Domestic violence,Restraining order,dvrosurrendernoconditions
+14,Domestic violence,Restraining order,dvrosurrenderdating
+14,Domestic violence,Restraining order,expartesurrender
+14,Domestic violence,Restraining order,expartesurrendernoconditions
+14,Domestic violence,Restraining order,expartesurrenderdating
+14,Domestic violence,Restraining order,dvroremoval
+14,Domestic violence,Stalking,stalking
