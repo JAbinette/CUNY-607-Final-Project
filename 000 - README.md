@@ -11,7 +11,10 @@ Datasets used in analysis include:
 
 Analysis in R Studio:
 RPubs: https://rpubs.com/JAbinette/CUNY607_Final_Project
+
 R Markdown File: 607 Final Project.Rmd
+
+Knitted PDF File: 607 Final Project.pdf
     
 Conclusion:
 The total number of firearm laws is a significant predictor and accounts for 49% of the variability in Firearm Deaths as a Proportion of the State Population. In breaking down the firearm laws by category, a multiple regression analysis determined that the number of Stand Your Ground, Child Access Prevention, and Preemption firearm laws can explain 55% of the variability.
