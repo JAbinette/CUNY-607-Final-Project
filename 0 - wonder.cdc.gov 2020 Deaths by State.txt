@@ -1,0 +1,82 @@
+"Notes"	"State"	"State Code"	"Year"	"Year Code"	Deaths	Population	Crude Rate
+	"Alabama"	"01"	"2020 "	"2020"	64779	4921532	1316.2
+	"Alaska"	"02"	"2020 "	"2020"	5170	731158	707.1
+	"Arizona"	"04"	"2020 "	"2020"	75747	7421401	1020.7
+	"Arkansas"	"05"	"2020 "	"2020"	38108	3030522	1257.5
+	"California"	"06"	"2020 "	"2020"	319808	39368078	812.4
+	"Colorado"	"08"	"2020 "	"2020"	46918	5807719	807.9
+	"Connecticut"	"09"	"2020 "	"2020"	37853	3557006	1064.2
+	"Delaware"	"10"	"2020 "	"2020"	11072	986809	1122.0
+	"District of Columbia"	"11"	"2020 "	"2020"	6198	712816	869.5
+	"Florida"	"12"	"2020 "	"2020"	239685	21733312	1102.8
+	"Georgia"	"13"	"2020 "	"2020"	103075	10710017	962.4
+	"Hawaii"	"15"	"2020 "	"2020"	12033	1407006	855.2
+	"Idaho"	"16"	"2020 "	"2020"	16402	1826913	897.8
+	"Illinois"	"17"	"2020 "	"2020"	132663	12587530	1053.9
+	"Indiana"	"18"	"2020 "	"2020"	78194	6754953	1157.6
+	"Iowa"	"19"	"2020 "	"2020"	35981	3163561	1137.4
+	"Kansas"	"20"	"2020 "	"2020"	32060	2913805	1100.3
+	"Kentucky"	"21"	"2020 "	"2020"	55880	4477251	1248.1
+	"Louisiana"	"22"	"2020 "	"2020"	56752	4645318	1221.7
+	"Maine"	"23"	"2020 "	"2020"	15740	1350141	1165.8
+	"Maryland"	"24"	"2020 "	"2020"	60072	6055802	992.0
+	"Massachusetts"	"25"	"2020 "	"2020"	68223	6893574	989.7
+	"Michigan"	"26"	"2020 "	"2020"	117106	9966555	1175.0
+	"Minnesota"	"27"	"2020 "	"2020"	52372	5657342	925.7
+	"Mississippi"	"28"	"2020 "	"2020"	40190	2966786	1354.7
+	"Missouri"	"29"	"2020 "	"2020"	73887	6151548	1201.1
+	"Montana"	"30"	"2020 "	"2020"	12027	1080577	1113.0
+	"Nebraska"	"31"	"2020 "	"2020"	19549	1937552	1009.0
+	"Nevada"	"32"	"2020 "	"2020"	30618	3138259	975.6
+	"New Hampshire"	"33"	"2020 "	"2020"	13700	1366275	1002.7
+	"New Jersey"	"34"	"2020 "	"2020"	96003	8882371	1080.8
+	"New Mexico"	"35"	"2020 "	"2020"	23807	2106319	1130.3
+	"New York"	"36"	"2020 "	"2020"	203341	19336776	1051.6
+	"North Carolina"	"37"	"2020 "	"2020"	109449	10600823	1032.5
+	"North Dakota"	"38"	"2020 "	"2020"	8052	765309	1052.1
+	"Ohio"	"39"	"2020 "	"2020"	143700	11693217	1228.9
+	"Oklahoma"	"40"	"2020 "	"2020"	47809	3980783	1201.0
+	"Oregon"	"41"	"2020 "	"2020"	40220	4241507	948.2
+	"Pennsylvania"	"42"	"2020 "	"2020"	155546	12783254	1216.8
+	"Rhode Island"	"44"	"2020 "	"2020"	11819	1057125	1118.0
+	"South Carolina"	"45"	"2020 "	"2020"	61223	5218040	1173.3
+	"South Dakota"	"46"	"2020 "	"2020"	9861	892717	1104.6
+	"Tennessee"	"47"	"2020 "	"2020"	84205	6886834	1222.7
+	"Texas"	"48"	"2020 "	"2020"	250339	29360759	852.6
+	"Utah"	"49"	"2020 "	"2020"	21497	3249879	661.5
+	"Vermont"	"50"	"2020 "	"2020"	6459	623347	1036.2
+	"Virginia"	"51"	"2020 "	"2020"	80596	8590563	938.2
+	"Washington"	"53"	"2020 "	"2020"	63146	7693612	820.8
+	"West Virginia"	"54"	"2020 "	"2020"	26106	1784787	1462.7
+	"Wisconsin"	"55"	"2020 "	"2020"	62706	5832655	1075.1
+	"Wyoming"	"56"	"2020 "	"2020"	5983	582328	1027.4
+"---"
+"Dataset: Underlying Cause of Death, 2018-2020, Single Race"
+"Query Parameters:"
+"Title: Underlying Cause of Death cdc - Grp by State, ICD Sub-Chapter.gov"
+"Year/Month: 2020"
+"Group By: State; Year"
+"Show Totals: False"
+"Show Zero Values: False"
+"Show Suppressed: False"
+"Calculate Rates Per: 100,000"
+"Rate Options: Default intercensal populations for years 2001-2009 (except Infant Age Groups)"
+"---"
+"Help: See http://wonder.cdc.gov/wonder/help/ucd-expanded.html for more information."
+"---"
+"Query Date: Dec 4, 2022 10:16:10 PM"
+"---"
+"Suggested Citation: Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics"
+"System, Mortality 2018-2020 on CDC WONDER Online Database, released in 2021. Data are from the Multiple Cause of Death Files,"
+"2018-2020, as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative"
+"Program. Accessed at http://wonder.cdc.gov/ucd-icd10-expanded.html on Dec 4, 2022 10:16:10 PM"
+"---"
+Caveats:
+"1. The population figures for year 2020 are single-race estimates of the July 1 resident population, from the Vintage 2020"
+"postcensal series released by the Census Bureau on July 27, 2021. The population figures for year 2019 are single-race estimates"
+"of the July 1 resident population, from the Vintage 2019 postcensal series released by the Census Bureau on June 25, 2020. The"
+"population figures for year 2018 are single-race estimates of the July 1 resident population, from the Vintage 2018 postcensal"
+"series released by the Census Bureau on June 20, 2019."
+"2. The population figures used in the calculation of death rates for the age group 'under 1 year' are the estimates of the"
+"resident population that is under one year of age. More information: http://wonder.cdc.gov/wonder/help/ucd-expanded.html#Age"
+"Group."
