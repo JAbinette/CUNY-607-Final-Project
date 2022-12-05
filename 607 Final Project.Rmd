@@ -1,0 +1,181 @@
+---
+title: "607 Final Project - Cause of Death by Firearm vs State Firearm Laws"
+author: "Jen Abinette"
+date: "2022-11-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Research question 
+
+Are there aspects of gun policy that are predictors of firearm mortality rate?
+
+### Cases 
+
+All datasets and relevant information can be found in Github Repository - https://github.com/JAbinette/CUNY-607-Final-Project
+
+Cause of Death by Firearm data retrieved from Centers for Disease Control & Prevention website includes 458 observations grouped by State, Year and Cause of Death Category (ICD Sub-Chapter) including firearm deaths excluding Terrorism, Legal Intervention and Operations of War 
+  See Github File: '0 - wonder.cdc.gov Underlying Cause of Death cdc - Grp by State, ICD Sub-Chapter.txt'
+
+Firearm Laws by State data retrieved from https://www.statefirearmlaws.org/resources Database containing detailed annual information on firearm-related laws in place in each of the 50 US states includes 150 observations with 137 variables after data subset to only include 2018-2020.
+  See Github File: '0 - statefirearmlaws.org Firearm Laws - DATABASE_0.xlsx'
+
+### Data Preparation
+
+### CDC 2020 Summary of Death by Firearm
+
+```{r}
+library(tidyr)
+library(readxl)
+library(dplyr)
+# Load CDC Cause of Death by Firearm text file from Github
+txt.url = 'https://raw.githubusercontent.com/JAbinette/CUNY-607-Final-Project/main/0%20-%20wonder.cdc.gov%20Underlying%20Cause%20of%20Death%20cdc%20-%20Grp%20by%20State%2C%20ICD%20Sub-Chapter.txt'
+cod.ld <- read.delim (txt.url, header=TRUE, sep = "\t")
+
+cod.st_yr <- subset (cod.ld, Year.Code == 2020, select = c("State", "Year.Code", "Deaths", "Population")) %>%
+  group_by(State, Year.Code) %>%
+  mutate(Firearm_Deaths = sum(Deaths)) %>%
+  mutate (Prop.of.Pop = (Firearm_Deaths/Population) ) %>%
+  ungroup()
+cod.st_yr <- subset (cod.st_yr, State != "District of Columbia", select =c("State", "Year.Code", "Firearm_Deaths", "Prop.of.Pop")) %>%
+  distinct() %>%
+  na.omit()
+
+``` 
+
+### CDC Reported Deaths by State in 2020
+
+```{r}
+# Load CDC Deaths by State in 2020 text file from Github
+txt.url = 'https://raw.githubusercontent.com/JAbinette/CUNY-607-Final-Project/main/0%20-%20wonder.cdc.gov%202020%20Deaths%20by%20State.txt'
+cod.all <- read.delim (txt.url, header=TRUE, sep = "\t")
+cod.all <- subset(cod.all, Year.Code == 2020 & State != "District of Columbia", select = c("State", "Deaths"))
+
+# Merge with Firearm Deaths data
+COD <- merge( cod.st_yr, cod.all, by.x = "State", by.y = "State", all.x = TRUE)  %>%
+  mutate (Prop.of.Deaths = (Firearm_Deaths/Deaths) )
+
+```
+
+### State Firearm Laws (filtered to only include 2020)
+
+```{r}
+# Download State Firearm Laws spreadsheet and save to your file directory (data saved in Github at https://github.com/JAbinette/CUNY-607-Final-Project/blob/main/0%20-%20statefirearmlaws.org%20Firearm%20Laws%20-%20DATABASE_0.xlsx)
+# Set path to excel spreadsheet
+path = "0 - statefirearmlaws.org Firearm Laws - DATABASE_0.xlsx"
+laws_ld <- read_excel(path)
+# Subset data to only include years 2018-2020
+laws_ld <- subset (laws_ld, year == 2020)
+# Transform from wide to long (excluding last column which is the total number of laws)
+laws_ld2 <- pivot_longer ( laws_ld, cols = 3:136, names_to ="Variable", values_to = "Indicator" )
+# Remove variable records where the law was not present for that year and State
+laws_ld3 <- subset ( laws_ld2, Indicator == 1 )
+head(laws_ld3)
+```
+
+### Add Variable Categories to Merge with State Firearm 
+
+```{r}
+# Load Variable Category data for State Firearm Laws data 
+laws.cat_ld <- read.csv('https://raw.githubusercontent.com/JAbinette/CUNY-607-Final-Project/main/0%20-%20statefirearmlaws.org%20Variable%20Categories%20-%20codebook_0.csv')
+# Replace spaces in Category with a period
+laws.cat_ld$Category <- make.names (laws.cat_ld$Category)
+# Merge
+laws_ld4 <- merge( laws_ld3, laws.cat_ld, by.x = "Variable", by.y = "Variable.Name", all.x = TRUE)
+laws_ld4 <- subset ( laws_ld4, select = c("state","year","lawtotal","Category"))
+
+library(dplyr)
+# Add count of laws by Category 
+laws_ld4 <- laws_ld4 %>%
+  group_by(state, year, lawtotal, Category) %>%
+  summarise(Category_count=n(),
+            .groups = 'drop')
+head(laws_ld4)
+```
+
+```{r}
+# Transform long to wide
+laws <- pivot_wider( laws_ld4, names_from = "Category", values_from = "Category_count")
+# Convert NA to zero
+laws[is.na(laws)] <- 0
+
+# Merge State Laws data with Cause of Death by State and Year
+df <- merge (COD, laws, by.x = c("State"), by.y = c("state"), all.x = TRUE)
+df <- subset(df, select = c("State", "Prop.of.Pop", "Prop.of.Deaths", "lawtotal"))
+```
+
+# Statistical Analyses 
+
+```{r}
+summary(df)
+```
+
+### Can the Total Number of Laws predict proportion of Firearm deaths per State Population?
+
+```{r}
+df %>%
+  summarise( cor( lawtotal, Prop.of.Pop, use = "complete.obs"))
+library(ggplot2)
+ggplot(data = df, aes(x = lawtotal, y = Prop.of.Pop)) + geom_jitter() + stat_smooth(method = "lm", se = FALSE)
+```
+
+
+```{r}
+# Simple Linear Regression
+m.pop <- lm(Prop.of.Pop ~ lawtotal, data = df)
+summary(m.pop)
+```
+
+### Check Model Assumptions for Simple Regression
+
+### Linearity and Constant Variability - Conditions both met as there is no apparent pattern in the residuals plot indicating there is linearity and the points are scattered around zero showing constant variability.
+```{r}
+ggplot(data = m.pop, aes(x = .fitted, y = .resid)) +
+geom_point() +
+geom_hline(yintercept = 0, linetype = "dashed") +
+xlab("Fitted values") +
+ylab("Residuals")
+```
+
+### Nearly Normal Residuals - Condition is met based on below histogram and the normal probability plots.
+```{r}
+ggplot(data = m.pop, aes(x = .resid)) +
+geom_histogram(binwidth = .00001) +
+xlab("Residuals")
+
+ggplot(data = m.pop, aes(sample = .resid)) + stat_qq()
+```
+
+### Can the Number and Category of Firearm Laws predict proportion of Firearm deaths per State Population?
+```{r}
+# Merge State Laws data with Cause of Death by State and Year
+df2 <- merge (COD, laws, by.x = c("State"), by.y = c("state"), all.x = TRUE)
+
+# Multiple Linear Regression
+m_2020 <- lm(Prop.of.Pop ~ Concealed.carry.permitting + Dealer.regulations + Domestic.violence + 
+Prohibitions.for.high.risk.gun.possession + Buyer.regulations + Possession.regulations + Stand.your.ground + Ammunition.regulations + Assault.weapons.and.large.capacity.magazines + 
+Background.checks + Child.access.prevention + Gun.trafficking + Immunity + Preemption, data = df2)
+summary(m_2020)
+```
+
+### Fit the Best Model using backward-selection and p-value as the selection criterion
+```{r}
+# Variables removed highest p-value at a time: Immunity, Dealer.regulations, Concealed.carry.permitting, Background.checks, Prohibitions.for.high.risk.gun.possession, Domestic.violence, Assault.weapons.and.large.capacity.magazines, Gun.trafficking,  Ammunition.regulations, Buyer.regulations, Possession.regulations
+m_bestfit <- lm(Prop.of.Pop ~ Stand.your.ground + Child.access.prevention + Preemption, data = df2)
+summary(m_bestfit)
+```
+
+### Check Model Assumptions
+
+```{r}
+par(mfrow = c(2, 2))
+plot(m_bestfit)
+```
+
+### Conclusions
+
+The total number of firearm laws is a significant predictor and accounts for 49% of the variability in Firearm Deaths as a Proportion of the State Population. In breaking down the firearm laws by category, a multiple regression analysis determined that the number of Stand Your Ground, Child Access Prevention, and Preemption firearm laws can explain 55% of the variability.
+
